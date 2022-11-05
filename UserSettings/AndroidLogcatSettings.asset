@@ -3,35 +3,11 @@
     "m_SelectedPackage": {
         "deviceId": "1WMHHA6H0S2195",
         "name": "com.DefaultCompany.DoctorID",
-        "processId": 22219,
+        "processId": 2083,
         "exited": false
     },
-    "m_SelectedPriority": 0,
+    "m_SelectedPriority": 3,
     "m_KnownPackagesForSerialization": [
-        {
-            "deviceId": "1WMHHA6H0S2195",
-            "name": "com.DefaultCompany.ComputerScience",
-            "processId": 9935,
-            "exited": true
-        },
-        {
-            "deviceId": "1WMHHA6H0S2195",
-            "name": "com.oculus.shellenv",
-            "processId": 3350,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHHA6H0S2195",
-            "name": "com.DefaultCompany.DoctorID",
-            "processId": 11777,
-            "exited": true
-        },
-        {
-            "deviceId": "1WMHHA6H0S2195",
-            "name": "com.DefaultCompany.DoctorID",
-            "processId": 12675,
-            "exited": true
-        },
         {
             "deviceId": "1WMHHA6H0S2195",
             "name": "com.DefaultCompany.DoctorID",
@@ -42,6 +18,36 @@
             "deviceId": "1WMHHA6H0S2195",
             "name": "com.DefaultCompany.DoctorID",
             "processId": 22219,
+            "exited": true
+        },
+        {
+            "deviceId": "1WMHHA6H0S2195",
+            "name": "com.oculus.os.clearactivity",
+            "processId": 5650,
+            "exited": false
+        },
+        {
+            "deviceId": "1WMHHA6H0S2195",
+            "name": "com.DefaultCompany.DoctorID",
+            "processId": 30069,
+            "exited": true
+        },
+        {
+            "deviceId": "1WMHHA6H0S2195",
+            "name": "com.oculus.shellenv",
+            "processId": 2249,
+            "exited": false
+        },
+        {
+            "deviceId": "1WMHHA6H0S2195",
+            "name": "com.DefaultCompany.DoctorID",
+            "processId": 32318,
+            "exited": true
+        },
+        {
+            "deviceId": "1WMHHA6H0S2195",
+            "name": "com.DefaultCompany.DoctorID",
+            "processId": 2083,
             "exited": false
         }
     ],
