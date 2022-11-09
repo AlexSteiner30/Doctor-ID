@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [Header("Right Hand Buttons")]
     public InputHelpers.Button jumpButton;
     public InputHelpers.Button crounchButton;
+    public InputHelpers.Button shootButton;
 
     // Left Hand
     public bool SprintPressed()
@@ -39,5 +40,14 @@ public class PlayerController : MonoBehaviour
         rightHand.inputDevice.IsPressed(jumpButton, out jump);
 
         return jump;
+    }
+    
+    public bool ShootPressed()
+    {
+        bool shoot;
+        rightHand.inputDevice.IsPressed(shootButton, out shoot);
+        
+        Debug.Log(shoot);
+        return shoot;
     }
 }

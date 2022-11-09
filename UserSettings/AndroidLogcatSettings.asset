@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "1WMHHA6H0S2195",
         "name": "com.DefaultCompany.DoctorID",
-        "processId": 2083,
+        "processId": 23317,
         "exited": false
     },
     "m_SelectedPriority": 3,
@@ -11,43 +11,43 @@
         {
             "deviceId": "1WMHHA6H0S2195",
             "name": "com.DefaultCompany.DoctorID",
-            "processId": 20765,
+            "processId": 15269,
             "exited": true
         },
         {
             "deviceId": "1WMHHA6H0S2195",
             "name": "com.DefaultCompany.DoctorID",
-            "processId": 22219,
+            "processId": 16877,
             "exited": true
         },
         {
             "deviceId": "1WMHHA6H0S2195",
-            "name": "com.oculus.os.clearactivity",
-            "processId": 5650,
+            "name": "com.DefaultCompany.DoctorID",
+            "processId": 17968,
+            "exited": true
+        },
+        {
+            "deviceId": "1WMHHA6H0S2195",
+            "name": "com.DefaultCompany.DoctorID",
+            "processId": 18952,
+            "exited": true
+        },
+        {
+            "deviceId": "1WMHHA6H0S2195",
+            "name": "com.DefaultCompany.DoctorID",
+            "processId": 19801,
             "exited": false
         },
         {
             "deviceId": "1WMHHA6H0S2195",
             "name": "com.DefaultCompany.DoctorID",
-            "processId": 30069,
-            "exited": true
-        },
-        {
-            "deviceId": "1WMHHA6H0S2195",
-            "name": "com.oculus.shellenv",
-            "processId": 2249,
+            "processId": 21387,
             "exited": false
         },
         {
             "deviceId": "1WMHHA6H0S2195",
             "name": "com.DefaultCompany.DoctorID",
-            "processId": 32318,
-            "exited": true
-        },
-        {
-            "deviceId": "1WMHHA6H0S2195",
-            "name": "com.DefaultCompany.DoctorID",
-            "processId": 2083,
+            "processId": 23317,
             "exited": false
         }
     ],
