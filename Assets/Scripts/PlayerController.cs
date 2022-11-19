@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Left Hand Buttons")]
     public InputHelpers.Button sprintButton;
+    public InputHelpers.Button changeUpButton;    
+    public InputHelpers.Button changeDownButton;
 
     [Header("Right Hand Buttons")]
     public InputHelpers.Button jumpButton;
@@ -31,6 +33,22 @@ public class PlayerController : MonoBehaviour
         rightHand.inputDevice.IsPressed(crounchButton, out crounch);
 
         return crounch;
+    }
+    
+    public bool ChangeUp()
+    {
+        bool changeUp;
+        
+        leftHand.inputDevice.IsPressed(changeDownButton, out changeUp);
+        return changeUp;
+    }
+    
+    public bool ChangeDown()
+    {
+        bool changeDown;
+        leftHand.inputDevice.IsPressed(changeDownButton, out changeDown);
+
+        return changeDown;
     }
 
     // Right Hand

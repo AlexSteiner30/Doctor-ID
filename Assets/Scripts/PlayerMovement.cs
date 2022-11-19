@@ -77,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
             Jump();
         }
 
+        // Have to fix the crounch since also the hands are getting smaller
         if(controller.CrounchPressed())
         {
             transform.localScale = new Vector3(transform.localScale.x, chrouchYScale, transform.localScale.z);
