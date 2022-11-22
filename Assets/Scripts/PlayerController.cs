@@ -65,7 +65,6 @@ public class PlayerController : MonoBehaviour
         bool shoot;
         rightHand.inputDevice.IsPressed(shootButton, out shoot);
         
-        Debug.Log(shoot);
         return shoot;
     }
 }
