@@ -1,11 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 using Unity.XR.CoreUtils;
-using UnityEngine.XR.Interaction.Toolkit;
-using System;
-using Photon.Pun;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -43,16 +38,8 @@ public class PlayerMovement : MonoBehaviour
     XROrigin rig;
     Rigidbody rb;
 
-    [Header("Networking - Photon")]
-    public PhotonView photonView;
-
     void Start()
     {
-        photonView = GetComponent<PhotonView>();
-
-        if (!photonView.IsMine)
-            this.GetComponent<PlayerMovement>().enabled = false;
-
         rb = GetComponent<Rigidbody>();
         rig = GetComponentInChildren<XROrigin>();
         controller = GetComponent<PlayerController>();

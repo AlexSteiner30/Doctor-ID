@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "1PASH9A5P30184",
+    "m_SelectedDeviceId": "1WMHHA6H0S2195",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "1WMHHA6H0S2195",
+        "name": "com.DefaultCompany.DoctorID",
+        "processId": 12244,
         "exited": false
     },
     "m_SelectedPriority": 2,
@@ -72,6 +72,18 @@
             "deviceId": "1WMHHA6H0S2195",
             "name": "com.DefaultCompany.DoctorID",
             "processId": 5334,
+            "exited": false
+        },
+        {
+            "deviceId": "1WMHHA6H0S2195",
+            "name": "com.DefaultCompany.DoctorID",
+            "processId": 11617,
+            "exited": false
+        },
+        {
+            "deviceId": "1WMHHA6H0S2195",
+            "name": "com.DefaultCompany.DoctorID",
+            "processId": 12244,
             "exited": false
         },
         {
