@@ -1,18 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private float radius;
+    [SerializeField] private float distance;
 
     private void FixedUpdate()
     {
-        RaycastHit hit;
-
-        if (Physics.SphereCast(transform.position, radius, transform.forward, out hit, 10))
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Buildings"))
         {
-            Debug.Log(hit.collider.gameObject.name);
+            if (Mathf.Abs(Vector3.Distance(obj.transform.position, transform.position)) <= distance)
+            {
+                obj.SetActive(true);
+            }
+
+            else 
+            {
+                obj.SetActive(false);
+            }
         }
     }
 }
