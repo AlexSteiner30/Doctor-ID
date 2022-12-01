@@ -7,8 +7,10 @@ using UnityEngine.UIElements;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private float distance;
+    [SerializeField] private float offset;
+    [SerializeField] private Camera camera;
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Buildings"))
         {
@@ -22,5 +24,10 @@ public class CameraController : MonoBehaviour
                 obj.SetActive(false);
             }
         }
+    }
+
+    private void Update()
+    {
+        camera.gameObject.transform.position = new Vector3(camera.transform.position.x, offset, camera.transform.position.z);
     }
 }

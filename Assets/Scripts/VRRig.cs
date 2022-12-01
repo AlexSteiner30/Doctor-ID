@@ -29,10 +29,14 @@ public class VRRig : MonoBehaviour
 
     [SerializeField] private Vector3 headBodyOffset;
 
+    [SerializeField] private Transform player;
+
     private void LateUpdate()
     {
         transform.position = IKHead.position + headBodyOffset;
-        transform.forward = Vector3.Lerp(transform.forward, Vector3.ProjectOnPlane(IKHead.forward, Vector3.up).normalized, Time.deltaTime * turnSmoothness); ;
+        transform.forward = Vector3.Lerp(transform.forward, Vector3.ProjectOnPlane(IKHead.forward, Vector3.up).normalized, Time.deltaTime * turnSmoothness);
+        transform.rotation = Quaternion.Euler(player.rotation.x, player.transform.rotation.y, player.transform.rotation.z);
+
         head.MapVRAvatar();
         leftHand.MapVRAvatar();
         rightHand.MapVRAvatar();

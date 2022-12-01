@@ -34,14 +34,14 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask isGround;
     bool isGrounded;
 
+    public Camera camera;
+
     PlayerController controller;
-    XROrigin rig;
     Rigidbody rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rig = GetComponentInChildren<XROrigin>();
         controller = GetComponent<PlayerController>();
 
         rb.freezeRotation = true;
@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        Quaternion headYaw = Quaternion.Euler(0, rig.Camera.transform.eulerAngles.y, 0);
+        Quaternion headYaw = Quaternion.Euler(0, camera.transform.eulerAngles.y, 0);
         moveDirection = headYaw * new Vector3(inputAxis.x, 0, inputAxis.y);
 
         if (isGrounded && !OnSlope())
