@@ -308,6 +308,20 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.xr.oculus.standalone": {
+      "version": "1.38.4",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.xr.openvr.standalone": {
+      "version": "1.0.5",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.xr.openxr": {
       "version": "1.5.3",
       "depth": 0,
