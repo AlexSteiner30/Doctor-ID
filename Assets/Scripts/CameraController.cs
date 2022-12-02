@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private float distance;
-    [SerializeField] private float offset;
+    [SerializeField] private Vector3 offset;
     [SerializeField] private Camera camera;
 
     private void LateUpdate()
@@ -28,6 +28,6 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        camera.gameObject.transform.position = new Vector3(camera.transform.position.x, offset, camera.transform.position.z);
+        camera.gameObject.transform.position = new Vector3(transform.position.x + offset.x, transform.position.y +  offset.y, transform.position.z + offset.z);
     }
 }

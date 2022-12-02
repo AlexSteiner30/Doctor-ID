@@ -25,16 +25,14 @@ public class VRRig : MonoBehaviour
 
     [SerializeField] private float turnSmoothness;
 
-    [SerializeField] private Transform IKHead;
-
-    [SerializeField] private Vector3 headBodyOffset;
+    [SerializeField] private Vector3 playerOffset;
 
     [SerializeField] private Transform player;
 
-    private void LateUpdate()
+    private void Update()
     {
-        transform.position = IKHead.position + headBodyOffset;
-        transform.forward = Vector3.Lerp(transform.forward, Vector3.ProjectOnPlane(IKHead.forward, Vector3.up).normalized, Time.deltaTime * turnSmoothness);
+        transform.position = new Vector3((player.position.x + playerOffset.x), 0f, (player.position.z + playerOffset.z));
+        transform.forward = Vector3.Lerp(transform.forward, Vector3.ProjectOnPlane(player.forward, Vector3.up).normalized, Time.deltaTime * turnSmoothness);
         transform.rotation = Quaternion.Euler(player.rotation.x, player.transform.rotation.y, player.transform.rotation.z);
 
         head.MapVRAvatar();
