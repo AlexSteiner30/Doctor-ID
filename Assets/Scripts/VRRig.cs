@@ -33,8 +33,7 @@ public class VRRig : MonoBehaviour
     {
         transform.position = new Vector3((player.position.x + playerOffset.x), 0f, (player.position.z + playerOffset.z));
         transform.forward = Vector3.Lerp(transform.forward, Vector3.ProjectOnPlane(player.forward, Vector3.up).normalized, Time.deltaTime * turnSmoothness);
-        transform.rotation = Quaternion.Euler(player.rotation.x, player.transform.rotation.y, player.transform.rotation.z);
-
+      
         head.MapVRAvatar();
         leftHand.MapVRAvatar();
         rightHand.MapVRAvatar();
