@@ -38,7 +38,7 @@ public class VRRig : MonoBehaviour
     private void FixedUpdate()
     {
         transform.rotation = Quaternion.Euler(0, camera.transform.eulerAngles.y, 0);
-        camera.transform.position = cameraPos.transform.position - cameraOffset;
+        camera.transform.position = cameraPos.transform.position + cameraOffset;
         cameraPos.transform.rotation = camera.transform.rotation;
 
         transform.position = new Vector3((player.position.x + playerOffset.x), 0f, (player.position.z + playerOffset.z));
