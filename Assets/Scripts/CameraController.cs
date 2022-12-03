@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] private float distance;
     [SerializeField] private Vector3 offset;
-    [SerializeField] private Camera camera;
+    [SerializeField] private GameObject camera;
 
     private void LateUpdate()
     {
@@ -28,6 +28,6 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        camera.gameObject.transform.position = new Vector3(transform.position.x + offset.x, transform.position.y +  offset.y, transform.position.z + offset.z);
+        camera.transform.position = new Vector3(transform.position.x + offset.x, transform.position.y +  offset.y, transform.position.z + offset.z);
     }
 }
