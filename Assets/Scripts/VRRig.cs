@@ -27,14 +27,15 @@ public class VRRig : MonoBehaviour
 
     [SerializeField] private float turnSmoothness;
 
+    [SerializeField] private Transform player;
     [SerializeField] private Vector3 playerOffset;
 
-    [SerializeField] private Transform player;
-
     [SerializeField] private Camera camera;
+    [SerializeField] private Vector3 cameraOffset;
 
     private void FixedUpdate()
     {
+        camera.gameObject.transform.position = new Vector3((camera.gameObject.transform.position.x + cameraOffset.x) , cameraOffset.y , (camera.gameObject.transform.position.z + cameraOffset.z));
         transform.rotation = Quaternion.Euler(0, camera.transform.eulerAngles.y, 0);
 
         transform.position = new Vector3((player.position.x + playerOffset.x), 0f, (player.position.z + playerOffset.z));
