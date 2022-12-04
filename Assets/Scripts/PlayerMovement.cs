@@ -4,6 +4,8 @@ using Unity.XR.CoreUtils;
 
 public class PlayerMovement : MonoBehaviour
 {
+    #region Variables
+
     [Header("Movement")]
     public float walkSpeed;
     public float sprintSpeed;
@@ -13,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     RaycastHit slopeHit;
 
-    public Vector3 moveDirection;
+    private Vector3 moveDirection;
     private Vector3 slopeMoveDirection;
 
     [Header("Jump")]
@@ -39,12 +41,28 @@ public class PlayerMovement : MonoBehaviour
     PlayerController controller;
     Rigidbody rb;
 
+
+    public enum PlayerState
+    {
+        idle,
+        walking,
+        running,
+        jumping,
+        crouching
+    };
+
+    public PlayerState playerState;
+
+    #endregion
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         controller = GetComponent<PlayerController>();
 
         rb.freezeRotation = true;
+
+        playerState = PlayerState.idle;
     }
 
     void FixedUpdate()
@@ -72,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Jump();
         }
-
+        
         // Have to fix the crounch since also the hands are getting smaller
         if(controller.CrounchPressed())
         {
@@ -84,6 +102,11 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = new Vector3(transform.localScale.x, 1, transform.localScale.z);
         }
+
+        else
+        {
+            playerState = PlayerState.idle;
+        }
     }
 
     private void MovePlayer()
@@ -94,11 +117,15 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded && !OnSlope())
         {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10, ForceMode.Acceleration);
+
+            playerState = PlayerState.walking;
         }
 
         else if(isGrounded && OnSlope())
         {
             rb.AddForce(slopeMoveDirection.normalized * moveSpeed * 10, ForceMode.Acceleration);
+
+            playerState = PlayerState.walking;
         }
 
         else if (!isGrounded)
@@ -124,16 +151,19 @@ public class PlayerMovement : MonoBehaviour
     {
         if(controller.SprintPressed() && isGrounded && !controller.CrounchPressed())
         {
+            playerState = PlayerState.running;
             moveSpeed = Mathf.Lerp(moveSpeed, sprintSpeed, 10 * Time.deltaTime);
         }
 
         else if (!controller.SprintPressed() && isGrounded && !controller.CrounchPressed())
         {
+ 
             moveSpeed = Mathf.Lerp(moveSpeed, walkSpeed, 10 * Time.deltaTime);
         }
 
         else if(controller.CrounchPressed() && !controller.SprintPressed())
         {
+            playerState = PlayerState.crouching;
             moveSpeed = Mathf.Lerp(moveSpeed, crouchSpeed, 100 * Time.deltaTime);
         }
     }

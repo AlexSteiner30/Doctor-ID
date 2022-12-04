@@ -19,6 +19,7 @@ public class CameraController : MonoBehaviour
         cameraPos = camera.transform.position;
         offsetCamera += cameraPos;
     }
+
     private void FixedUpdate()
     {
         Camera();
