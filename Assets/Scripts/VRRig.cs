@@ -2,50 +2,70 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.XR.LegacyInputHelpers;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
-
-[System.Serializable]
-public class MapTransform
-{
-    public Transform vrTarget;
-    public Transform IKTarget;
-    public Vector3 trackingPositionOffset;
-    public Vector3 trackingRotationOffset;
-
-    public void MapVRAvatar()
-    {
-        IKTarget.position = vrTarget.TransformPoint(trackingPositionOffset);
-        IKTarget.rotation = vrTarget.rotation * Quaternion.Euler(trackingRotationOffset);
-    }
-}
 
 public class VRRig : MonoBehaviour
 {
-    [SerializeField] private MapTransform head;
-    [SerializeField] private MapTransform leftHand;
-    [SerializeField] private MapTransform rightHand;
-
-    [SerializeField] private float turnSmoothness;
-
-    [SerializeField] private Vector3 playerOffset;
-
-    [SerializeField] private Transform player;
-
-    [SerializeField] private Camera camera;
-    [SerializeField] private GameObject cameraPos;
-    [SerializeField] private Vector3 cameraOffset;
+    [SerializeField] private Animator animator;
+    [SerializeField] private PlayerMovement playerMovement;
 
     private void FixedUpdate()
     {
-        transform.rotation = Quaternion.Euler(0, camera.transform.eulerAngles.y, 0);
-        camera.transform.position = cameraPos.transform.position - cameraOffset;
-        cameraPos.transform.rotation = camera.transform.rotation;
+        AnimationHandler();
+    }
 
-        transform.position = new Vector3((player.position.x + playerOffset.x), 0f, (player.position.z + playerOffset.z));
-        transform.forward = Vector3.Lerp(transform.forward, Vector3.ProjectOnPlane(player.forward, Vector3.up).normalized, Time.deltaTime * turnSmoothness);
+    private void AnimationHandler()
+    {
+        switch(playerMovement.playerState)
+        {
+            case PlayerMovement.PlayerState.idle:
+                animator.SetBool("idle", true);
 
-        head.MapVRAvatar();
-        leftHand.MapVRAvatar();
-        rightHand.MapVRAvatar();
+                animator.SetBool("walking", false);
+                animator.SetBool("running", false);
+                animator.SetBool("jumping", false);
+                animator.SetBool("crouching", false);
+
+                break;
+
+            case PlayerMovement.PlayerState.walking:
+                animator.SetBool("walking", true);
+
+                animator.SetBool("idle", false);
+                animator.SetBool("running", false);
+                animator.SetBool("jumping", false);
+                animator.SetBool("crouching", false);
+
+                break;
+
+            case PlayerMovement.PlayerState.running:
+                animator.SetBool("running", true);
+
+                animator.SetBool("walking", false);
+                animator.SetBool("idle", false);
+                animator.SetBool("jumping", false);
+                animator.SetBool("crouching", false);
+
+                break;
+
+            case PlayerMovement.PlayerState.jumping:
+                animator.SetBool("jumping", true);
+
+                animator.SetBool("walking", false);
+                animator.SetBool("running", false);
+                animator.SetBool("idle", false);
+                animator.SetBool("crouching", false);
+
+                break;
+
+            case PlayerMovement.PlayerState.crouching:
+                animator.SetBool("crouching", true);
+
+                animator.SetBool("walking", false);
+                animator.SetBool("running", false);
+                animator.SetBool("jumping", false);
+                animator.SetBool("idle", false);
+
+                break;
+        }
     }
 }

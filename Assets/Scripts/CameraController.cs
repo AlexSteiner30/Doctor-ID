@@ -7,10 +7,30 @@ using UnityEngine.UIElements;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private float distance;
-    [SerializeField] private Vector3 offset;
+
     [SerializeField] private GameObject camera;
 
+    [SerializeField] private Vector3 offsetCamera;
+
+    private Vector3 cameraPos;
+
+    private void Start()
+    {
+        cameraPos = camera.transform.position;
+        offsetCamera += cameraPos;
+    }
+
+    private void FixedUpdate()
+    {
+        Camera();
+    }
+
     private void LateUpdate()
+    {
+        LoadChunk();
+    }
+
+    private void LoadChunk()
     {
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Buildings"))
         {
@@ -19,15 +39,15 @@ public class CameraController : MonoBehaviour
                 obj.SetActive(true);
             }
 
-            else 
+            else
             {
                 obj.SetActive(false);
             }
         }
     }
 
-    private void Update()
+    private void Camera()
     {
-        camera.transform.position = new Vector3(transform.position.x + offset.x, transform.position.y +  offset.y, transform.position.z + offset.z);
+        camera.transform.position = new Vector3(camera.transform.position.x, offsetCamera.y, camera.transform.position.z);
     }
 }
