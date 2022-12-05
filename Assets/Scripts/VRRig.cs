@@ -11,8 +11,6 @@ public class VRRig : MonoBehaviour
     private void FixedUpdate()
     {
         AnimationHandler();
-
-        print(playerMovement.playerState);
     }
 
     private void AnimationHandler()

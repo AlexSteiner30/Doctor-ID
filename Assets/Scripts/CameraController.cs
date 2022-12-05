@@ -12,6 +12,19 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] private Vector3 offsetCamera;
 
+    private Vector3 cameraPos;
+
+    private void Start()
+    {
+        cameraPos = camera.transform.position;
+        offsetCamera += cameraPos;
+    }
+
+    private void FixedUpdate()
+    {
+        Camera();
+    }
+
     private void LateUpdate()
     {
         LoadChunk();
@@ -31,5 +44,10 @@ public class CameraController : MonoBehaviour
                 obj.SetActive(false);
             }
         }
+    }
+
+    private void Camera()
+    {
+        camera.transform.position = new Vector3(camera.transform.position.x, offsetCamera.y, camera.transform.position.z);
     }
 }
