@@ -7,8 +7,13 @@ using UnityEngine.UIElements;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private float distance;
+<<<<<<< HEAD
 
     [SerializeField] private GameObject camera;
+=======
+    [SerializeField] private Vector3 offset;
+    [SerializeField] private Camera camera;
+>>>>>>> parent of 028f10b (VR Rig some bugs fix)
 
     [SerializeField] private Vector3 offsetCamera;
 
@@ -47,6 +52,10 @@ public class CameraController : MonoBehaviour
 
     private void Camera()
     {
+<<<<<<< HEAD
         camera.transform.position = new Vector3(camera.transform.position.x, offsetCamera.y, camera.transform.position.z);
+=======
+        camera.gameObject.transform.position = new Vector3(transform.position.x + offset.x, transform.position.y +  offset.y, transform.position.z + offset.z);
+>>>>>>> parent of 028f10b (VR Rig some bugs fix)
     }
 }
