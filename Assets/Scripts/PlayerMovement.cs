@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     RaycastHit slopeHit;
 
-    public Vector3 moveDirection;
+    private Vector3 moveDirection;
     private Vector3 slopeMoveDirection;
 
     [Header("Jump")]
