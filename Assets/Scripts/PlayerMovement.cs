@@ -117,21 +117,21 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded && !OnSlope())
         {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10, ForceMode.Acceleration);
+
+            playerState = PlayerState.walking;
         }
 
         else if(isGrounded && OnSlope())
         {
             rb.AddForce(slopeMoveDirection.normalized * moveSpeed * 10, ForceMode.Acceleration);
 
+            playerState = PlayerState.walking;
         }
 
         else if (!isGrounded)
         {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10 * airMultiplier, ForceMode.Acceleration);
         }
-
-        if(moveDirection.magnitude > 0)
-            playerState = PlayerState.walking;
     }
 
     private void DragControll()
