@@ -27,16 +27,19 @@ public class VRRig : MonoBehaviour
 
     [SerializeField] private float turnSmoothness;
 
-    [SerializeField] private Transform player;
     [SerializeField] private Vector3 playerOffset;
 
+    [SerializeField] private Transform player;
+
     [SerializeField] private Camera camera;
+    [SerializeField] private GameObject cameraPos;
     [SerializeField] private Vector3 cameraOffset;
 
     private void FixedUpdate()
     {
-        camera.gameObject.transform.position = new Vector3((camera.gameObject.transform.position.x + cameraOffset.x) , cameraOffset.y , (camera.gameObject.transform.position.z + cameraOffset.z));
         transform.rotation = Quaternion.Euler(0, camera.transform.eulerAngles.y, 0);
+        camera.transform.position = cameraPos.transform.position - cameraOffset;
+        cameraPos.transform.rotation = camera.transform.rotation;
 
         transform.position = new Vector3((player.position.x + playerOffset.x), 0f, (player.position.z + playerOffset.z));
         transform.forward = Vector3.Lerp(transform.forward, Vector3.ProjectOnPlane(player.forward, Vector3.up).normalized, Time.deltaTime * turnSmoothness);
