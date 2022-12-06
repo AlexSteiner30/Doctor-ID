@@ -206,5 +206,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.isKinematic = true;
         }
+
+        print("Kinematic is " + rb.isKinematic);
     }
 }
