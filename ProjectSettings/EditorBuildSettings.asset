@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 7c488f75b13fa4468815f7b3ae13acf3
+  - enabled: 0
+    path: Assets/Scenes/LowerBodyIK.unity
+    guid: 02f38ab7e86f040e5bc407dcb875a2d4
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: a74b94e8fc735b54eb0247b646842705, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: a69c802258c11cc42818dca72a5cae32, type: 2}
