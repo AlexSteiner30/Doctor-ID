@@ -14,12 +14,6 @@ public class CameraController : MonoBehaviour
 
     private Vector3 cameraPos;
 
-    private void Start()
-    {
-        cameraPos = camera.transform.position;
-        offsetCamera += cameraPos;
-    }
-
     private void FixedUpdate()
     {
         Camera();
