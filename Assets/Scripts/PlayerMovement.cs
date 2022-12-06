@@ -68,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         MovePlayer();
+        CheckMovement();
     }
 
     void Update()
