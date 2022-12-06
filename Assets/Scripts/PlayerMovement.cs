@@ -198,12 +198,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if(moveDirection.magnitude > 0)
         {
-            rb.isKinematic = true;
+            rb.isKinematic = false;
         }
 
         else
         {
-            rb.isKinematic = false;
+            rb.isKinematic = true;
         }
     }
 }
